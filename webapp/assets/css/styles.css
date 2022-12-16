@@ -1,0 +1,39 @@
+.columna{
+  min-width: 300px;
+  width: 20%;
+  min-height: 500px; 
+  max-height: 1000px;
+  margin: 5px; 
+  border-radius: 5px;
+  float:left;
+  padding:15px;
+  
+} 
+
+.columna-azul{
+background-color: rgb(173, 221, 255);
+}
+
+.columna-verde{
+background-color: rgba(152, 235, 131, 0.74);
+}
+
+.columna-amarilla{
+background-color: rgb(247, 226, 109);
+}
+
+.targeta{
+  width: 95%; 
+  height: 150px;
+  margin: 8px;
+  padding: 5px;
+  background-color: rgb(235, 230, 230);
+}
+
+.cardbody{
+  width: 95%;
+  /* height: 150px; */
+  margin: 8px;
+  padding: 5px;
+  background-color: rgb(235, 230, 230);
+}

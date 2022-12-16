@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz 3</title>
+  <link href="./../vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./../assets/css/styles.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" rel="stylesheet">
+  <script src="./../assets/js/app.js"></script>
+  <script src="./../vendor/js/bootstrap.bundle.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+</head>
+
+</body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-3 border-bottom border-primary">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="#">TO DO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/index.html">Menú Principal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="/pages/interfaz2.html">Pag 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="/pages/interfaz3.html">Pag 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid mt-4">
+
+  <!-- columna 1-->
+  <div class="columna columna-azul bodyDrop" id="box1" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+    <button type="button" class="btn-box2 is-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+    </button>
+    TODO
+
+    <div class="container-fluid " id="card-container1">
+    </div>
+
+
+    <!--The Modal -->
+    <div class="modal" id="Modal1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!--Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tarjeta</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!--  Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="title" id="recipient-title1" placeholder="Título">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="description" id="recipient-descrip1"
+                  placeholder="Descripción">
+              </div>
+              <div class="mb-3">
+                <<<<<<< HEAD <label for="file_uploads">Choose files to upload</label>
+                  <input type="file" class="form-control" name="uploadfile" id="uploadfile" placeholder="uploadfile"
+                    accept="">
+                  =======
+                  <input type="file" class="form-control" name="file" id="recipient-descrip3">
+                  >>>>>>> cfdae78 (file upload - on tarea modification)
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+
+          <div class="modal-footer">
+            <button id="btnAddCard1" type="button" class="btn btn-primary">Añadir</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- FINAL Columna 1-->
+
+
+  <!-- columna 2-->
+  <div class="columna columna-verde bodyDrop" id="box2" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+    <button type="button" class="btn-box2 is-danger" data-bs-toggle="modal" data-bs-target="#Modal2">
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+    </button>
+    DOING
+
+    <div class="container-fluid" id="card-container2">
+    </div>
+
+    <!--The Modal -->
+    <div class="modal" id="Modal2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!--Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tarjeta</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!--  Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="title" id="recipient-title2" placeholder="Título">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="description" id="recipient-descrip2"
+                  placeholder="Descripción">
+              </div>
+              <div class="mb-3">
+                <<<<<<< HEAD <label for="file_uploads">Choose files to upload</label>
+                  <input type="file" class="form-control" name="uploadfile" id="uploadfile" placeholder="uploadfile"
+                    accept="">
+                  =======
+                  <input type="file" class="form-control" name="file" id="recipient-descrip3">
+                  >>>>>>> cfdae78 (file upload - on tarea modification)
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button id="btnAddCard2" type="button" class="btn btn-primary">Añadir</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- final columna 2-->
+
+
+  <!-- columna 3-->
+  <div class="columna columna-amarilla " id="box3" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+    <button type="button" class="button is-danger" data-bs-toggle="modal" data-bs-target="#Modal3">
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+    </button>
+    DONE
+
+    <div class="container-fluid " id="card-container3">
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="Modal3">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tarjeta</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="title" id="recipient-title3" placeholder="Título">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" name="description" id="recipient-descrip3"
+                  placeholder="Descripción">
+              </div>
+              <div class="mb-3">
+                <input type="file" class="form-control" name="file" id="recipient-descrip3">
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button id="btnAddCard3" type="button" class="btn btn-primary">Añadir</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL DE LES 3 COLUMNES-->
+
+
+
+
+  <!--The Modal -->
+  <div class="modal" id="modal-edicion-tarjeta">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!--Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modificar tarjeta</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!--  Modal body -->
+        <div class="modal-body">
+          <form id="edicion-tarjeta-form">
+            <div class="mb-3">
+              <input type="text" class="form-control" name="title" id="modal-edicion-tarjeta-title"
+                placeholder="Título">
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" name="description" id="modal-edicion-tarjeta-description"
+                placeholder="Descripción">
+            </div>
+            <div class="mb-3">
+              <input type="file" class="form-control" name="file" id="recipient-descrip3">
+              Max 1mb
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+
+        <div class="modal-footer">
+          <button id="modal-edicion-tarjeta-modificar" type="button" class="btn btn-primary">Modificar</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
+  <script src="./../assets/js/api.js"></script>
+  <script src="./../assets/js/io-api.js"></script>
+  <script src="./interfaz3.js"></script>
+  </body>
+
+</html>

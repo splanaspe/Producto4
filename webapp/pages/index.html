@@ -1,0 +1,159 @@
+<!-- Archivo destinado a crear el contenido con HTMLS -->
+<!-- pruebas de salvador con github-->
+<!-- qué bien,,, ya se como funciona github jejeje ahora poco a poco mejorar compañeros, me resulta util la web de w3schools-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz 1</title>
+  <link href="./../vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" rel="stylesheet">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+</head>
+<style>
+  a {
+    text-decoration: none;
+    color: white
+  }
+</style>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-3 border-bottom border-primary">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="#">TO DO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/index.html">Menú Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/pages/interfaz2.html">Pag 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/pages/interfaz3.html">Pag 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <button type="button" class="btn btn-primary">
+    <a href="/pages/interfaz2.html">Nuevo Panel</a>
+  </button>
+
+
+
+  <!-- modal -->
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Añadir nuevo panel</h5>
+        </div>
+
+        <div class="modal-body">
+          <div class="container">
+            <form class="needs-validation" novalidate>
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Nombre del panel</label>
+                <input type="text" class="form-control is-invalid" id="validacion1" value="" required>
+
+                <div class="valid-feedback">Ok!</div>
+                <div class="invalid-feedback">Por favor, nombre el nuevo espacio</div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Decripción del espacio</label>
+                <input type="text" class="form-control is-invalid" id="validacion2" value="" required>
+                <div class="valid-feedback">Ok!</div>
+                <div class="invalid-feedback">Por favor, describa el nuevo espacio</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    <h6>Acepto los términos y las condiciones</h6>
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Añadir</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row" id="panel-container">
+
+    </div>
+  </div>
+
+
+
+
+  <!-- The Modal -->
+  <div class="modal" id="Modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <label for="recipient-name" class="col-form-label">Título</label>
+          <input type="text" class="form-control" name="title" id="recipient-title">
+          <label for="recipient-name" class="col-form-label">Descripción</label>
+          <input type="text" class="form-control" name="description" id="recipient-descrip">
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="btnAddCard" type="button" class="btn btn-primary">Añadir</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="./../vendor/js/bootstrap.bundle.js"></script>
+  <script src="./../assets/js/api.js"></script>
+  <script src="./../assets/js/io-api.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
