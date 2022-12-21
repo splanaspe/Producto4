@@ -5,7 +5,8 @@ type Tarea {
   descripcion: String
   fecha_inicio: String
   fecha_fin: String
-  estado: String
+  estado: Boolean
+  columna: String
   panelId: String
 }
 type Panel {

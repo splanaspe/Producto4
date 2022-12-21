@@ -33,12 +33,12 @@ function handleDrop(event) {
 }
 
 /** Metodo crear targeta/carta */
-const createCard = (title, description, previousId,estado) => {
+const createCard = (title, description, previousId,columna) => {
   const id = previousId || new Date().getTime();
 
   if (!previousId) {
     console.log('./panelId', panelId)
-    window.ioAPI.addTarea(id, {title, description, panelId,estado})
+    window.ioAPI.addTarea(id, {title, description, panelId,columna})
   }
 
   const card = document.createElement("div");
@@ -127,13 +127,13 @@ addBtnTODO.addEventListener("click", (e) => {
 
   const title = addPanelModalTitleTODO.value;
   const description = addPanelDescriptionTODO.value;
-  const estado = "TODO";
+  const columna = "TODO";
 
   if (title === "" || description === "") {
     return
   }
 
-  const card = createCard(title, description,estado);
+  const card = createCard(title, description,"TODO");
   cardContainerTODO.appendChild(card);
 });
 }
@@ -153,13 +153,13 @@ addBtnDOING.addEventListener("click", (e) => {
 
   const title = addPanelModalTitleDOING.value;
   const description = addPanelDescriptionDOING.value;
-  const estado = "DOING";
+  const columna = "DOING";
 
   if (title === "" || description === "") {
     return
   }
 
-  const card = createCard(title, description,estado);
+  const card = createCard(title, description,"DOING");
   cardContainerDOING.appendChild(card);
 });
 }
@@ -181,23 +181,28 @@ addBtnDONE.addEventListener("click", (e) => {
 
   const title = addPanelModalTitleDONE.value;
   const description = addPanelDescriptionDONE.value;
-  const estado = "DONE";
+  const columna = "DONE";
 
   if (title === "" || description === "") {
     return
   }
 
-  const card = createCard(title, description,estado);
+  const card = createCard(title, description,"DONE");
   cardContainerDONE.appendChild(card);
 });
 }
 
+
+/* ESTE ES EL ORIGINAL
 const BOX1_CONTAINER = 'box1'
 const BOX2_CONTAINER = 'box2'
 const BOX3_CONTAINER = 'box3'
 
 window.getAllTareas().then((res) => res.json()).then(({ data }) => {
   console.log('data.allTareas', data.allTareas);
+  const cardContainerTODO = document.getElementById("card-container1");
+  const cardContainerDOING = document.getElementById("card-container2");
+  const cardContainerDONE = document.getElementById("card-container3");
 
   data.allTareas.filter(({ panelId: tareaPanelId }) => tareaPanelId === panelId).forEach((tareaData) => {
     console.log('./panel', tareaData)
@@ -212,7 +217,27 @@ window.getAllTareas().then((res) => res.json()).then(({ data }) => {
     }
   })
 })
+*/
 
 
+// Este es el de prueba
+window.getAllTareas().then((res) => res.json()).then(({ data }) => {
+  console.log('data.allTareas', data.allTareas);
+  const cardContainerTODO = document.getElementById("card-container1");
+  const cardContainerDOING = document.getElementById("card-container2");
+  const cardContainerDONE = document.getElementById("card-container3");
 
+  data.allTareas.filter(({ panelId: tareaPanelId }) => tareaPanelId === panelId).forEach((tareaData) => {
+    console.log('./panel', tareaData)
+    const tareaElement = createCard(tareaData.titulo, tareaData.descripcion, tareaData._id,tareaData.columna)
+
+    if (tareaData.columna == "DOING") {
+      cardContainerDOING.appendChild(tareaElement)
+    } else if (tareaData.columna == "DONE") {
+      cardContainerDONE.appendChild(tareaElement)
+    } else {
+      cardContainerTODO.appendChild(tareaElement)
+    }
+  })
+})
 

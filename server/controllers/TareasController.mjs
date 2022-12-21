@@ -20,6 +20,7 @@ export const updateTareaResolver = async (root, args) => {
   tarea.fecha_inicio = args.fecha_inicio
   tarea.fecha_fin = args.fecha_fin
   tarea.estado = args.estado
+  tarea.columna = args.columna
 
   return tarea.save()
 }
