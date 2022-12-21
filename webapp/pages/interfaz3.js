@@ -9,6 +9,11 @@ const modalEdicionTarjetaTitleElement = document.getElementById('modal-edicion-t
 const modalEdicionTarjetaDescriptionElement = document.getElementById('modal-edicion-tarjeta-description')
 const modalEdicionTarjetaModificarElement = document.getElementById('modal-edicion-tarjeta-modificar')
 
+
+/**
+ * Metodos de DRAG AND DROP
+ * 
+ *  */
 function allowDrop(event) {
   event.preventDefault();
 }
@@ -27,13 +32,13 @@ function handleDrop(event) {
   event.target.appendChild(document.getElementById(data));
 }
 
-
+/** Metodo crear targeta/carta */
 const createCard = (title, description, previousId,estado) => {
   const id = previousId || new Date().getTime();
 
   if (!previousId) {
     console.log('./panelId', panelId)
-    window.ioAPI.addTarea(id, { title, description, panelId,estado})
+    window.ioAPI.addTarea(id, {title, description, panelId,estado})
   }
 
   const card = document.createElement("div");
@@ -110,6 +115,7 @@ const createCard = (title, description, previousId,estado) => {
 /**
  * ? BTN- TODO
  */
+{
 const addBtnTODO = document.getElementById("btnAddCard1");
 
 const addPanelModalTitleTODO = document.getElementById("recipient-title1");
@@ -130,12 +136,12 @@ addBtnTODO.addEventListener("click", (e) => {
   const card = createCard(title, description,estado);
   cardContainerTODO.appendChild(card);
 });
-
+}
 
 /**
  * ? BTN- DOING
  */
-
+{
 const addBtnDOING = document.getElementById("btnAddCard2");
 
 const addPanelModalTitleDOING = document.getElementById("recipient-title2");
@@ -153,16 +159,16 @@ addBtnDOING.addEventListener("click", (e) => {
     return
   }
 
-  const card = createCard(title, description);
+  const card = createCard(title, description,estado);
   cardContainerDOING.appendChild(card);
 });
+}
 
 //CreacionSubelementosBox3
-
-
 /**
  * ? BTN- DONE
  */
+{
 const addBtnDONE = document.getElementById("btnAddCard3");
 
 const addPanelModalTitleDONE = document.getElementById("recipient-title3");
@@ -181,10 +187,10 @@ addBtnDONE.addEventListener("click", (e) => {
     return
   }
 
-  const card = createCard(title, description);
+  const card = createCard(title, description,estado);
   cardContainerDONE.appendChild(card);
 });
-
+}
 
 const BOX1_CONTAINER = 'box1'
 const BOX2_CONTAINER = 'box2'
@@ -195,14 +201,18 @@ window.getAllTareas().then((res) => res.json()).then(({ data }) => {
 
   data.allTareas.filter(({ panelId: tareaPanelId }) => tareaPanelId === panelId).forEach((tareaData) => {
     console.log('./panel', tareaData)
-    const tareaElement = createCard(tareaData.titulo, tareaData.descripcion, tareaData._id)
+    const tareaElement = createCard(tareaData.titulo, tareaData.descripcion, tareaData._id,tareaData.estado)
 
-    if (tareaData.estado === 'DOING') {
+    if (tareaData.estado == 'DOING') {
       document.getElementById(BOX2_CONTAINER).append(tareaElement)
-    } else if (tareaData.estado === 'DONE') {
+    } else if (tareaData.estado == 'DONE') {
       document.getElementById(BOX3_CONTAINER).append(tareaElement)
     } else {
       document.getElementById(BOX1_CONTAINER).append(tareaElement)
     }
   })
 })
+
+
+
+
