@@ -95,7 +95,7 @@ io.on('connection', (socket) => {
 
 
   // tareas
-  socket.on('addTarea', ({ id, tarea }) => {
+  socket.on('addTarea', ({ id, tarea}) => {
     console.log('addTarea', { id, tarea });
 
     if (tarea.title === '0') {
@@ -109,6 +109,7 @@ io.on('connection', (socket) => {
         titulo: tarea.title,
         descripcion: tarea.description,
         panelId: tarea.panelId,
+        estado: tarea.estado,
       })
       notifyTaskNotification('tarea agregada')
     } catch (error) {
@@ -156,6 +157,23 @@ io.on('connection', (socket) => {
     }
   })
 
+/* METODO PARA MODIFICAR EL ESTADO DE LA TAREA
+
+  socket.on('modifyColumnTarea', ({ id, estado }) => {
+    console.log('modifyTarea', { id, tarea });
+
+    try {
+      updateTareaResolver(null, {
+        _id: id,
+        titulo: tarea.title,
+        descripcion: tarea.description,
+      })
+      notifyTaskNotification('tarea modificada')
+    } catch (error) {
+      notifyError(error.toString())
+    }
+  })
+*/
 
   socket.on('disconnect', () => {
     console.log('user disconnected');

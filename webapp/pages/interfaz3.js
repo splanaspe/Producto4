@@ -28,12 +28,12 @@ function handleDrop(event) {
 }
 
 
-const createCard = (title, description, previousId) => {
+const createCard = (title, description, previousId,estado) => {
   const id = previousId || new Date().getTime();
 
   if (!previousId) {
     console.log('./panelId', panelId)
-    window.ioAPI.addTarea(id, { title, description, panelId })
+    window.ioAPI.addTarea(id, { title, description, panelId,estado})
   }
 
   const card = document.createElement("div");
@@ -106,6 +106,10 @@ const createCard = (title, description, previousId) => {
   return card;
 }
 
+
+/**
+ * ? BTN- TODO
+ */
 const addBtnTODO = document.getElementById("btnAddCard1");
 
 const addPanelModalTitleTODO = document.getElementById("recipient-title1");
@@ -117,15 +121,20 @@ addBtnTODO.addEventListener("click", (e) => {
 
   const title = addPanelModalTitleTODO.value;
   const description = addPanelDescriptionTODO.value;
+  const estado = "TODO";
 
   if (title === "" || description === "") {
     return
   }
 
-  const card = createCard(title, description);
+  const card = createCard(title, description,estado);
   cardContainerTODO.appendChild(card);
 });
 
+
+/**
+ * ? BTN- DOING
+ */
 
 const addBtnDOING = document.getElementById("btnAddCard2");
 
@@ -133,13 +142,12 @@ const addPanelModalTitleDOING = document.getElementById("recipient-title2");
 const addPanelDescriptionDOING = document.getElementById("recipient-descrip2");
 const cardContainerDOING = document.getElementById("card-container2");
 
-
-
 addBtnDOING.addEventListener("click", (e) => {
   e.preventDefault();
 
   const title = addPanelModalTitleDOING.value;
   const description = addPanelDescriptionDOING.value;
+  const estado = "DOING";
 
   if (title === "" || description === "") {
     return
@@ -149,13 +157,12 @@ addBtnDOING.addEventListener("click", (e) => {
   cardContainerDOING.appendChild(card);
 });
 
-
-
-
-
-
 //CreacionSubelementosBox3
 
+
+/**
+ * ? BTN- DONE
+ */
 const addBtnDONE = document.getElementById("btnAddCard3");
 
 const addPanelModalTitleDONE = document.getElementById("recipient-title3");
@@ -166,20 +173,17 @@ const cardContainerDONE = document.getElementById("card-container3");
 addBtnDONE.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const title = addPanelModalTitleDOING.value;
-  const description = addPanelDescriptionDOING.value;
+  const title = addPanelModalTitleDONE.value;
+  const description = addPanelDescriptionDONE.value;
+  const estado = "DONE";
 
   if (title === "" || description === "") {
     return
   }
 
   const card = createCard(title, description);
-  cardContainerDOING.appendChild(card);
+  cardContainerDONE.appendChild(card);
 });
-
-
-
-
 
 
 const BOX1_CONTAINER = 'box1'

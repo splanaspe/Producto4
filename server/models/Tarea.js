@@ -10,7 +10,7 @@ const TareaSchema = new Schema({
     descripcion: String,
     fecha_inicio: { type: Date, default: Date.now },
     fecha_fin: { type: Date },
-    estado: Boolean,
+    estado: String,
     panelId: String,
 });
 
