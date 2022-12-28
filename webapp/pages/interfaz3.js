@@ -133,7 +133,7 @@ addBtnTODO.addEventListener("click", (e) => {
     return
   }
 
-  const card = createCard(title, description,"TODO");
+  const card = createCard(title, description,columna);
   cardContainerTODO.appendChild(card);
 });
 }
@@ -159,7 +159,7 @@ addBtnDOING.addEventListener("click", (e) => {
     return
   }
 
-  const card = createCard(title, description,"DOING");
+  const card = createCard(title, description);
   cardContainerDOING.appendChild(card);
 });
 }
@@ -187,7 +187,7 @@ addBtnDONE.addEventListener("click", (e) => {
     return
   }
 
-  const card = createCard(title, description,"DONE");
+  const card = createCard(title, description, columna);
   cardContainerDONE.appendChild(card);
 });
 }
