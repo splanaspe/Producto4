@@ -3,12 +3,13 @@ type Tarea {
   _id: String
   titulo: String 
   descripcion: String
+  columna: String
   fecha_inicio: String
   fecha_fin: String
   estado: Boolean
-  columna: String
   panelId: String
 }
+
 type Panel {
   _id: String
   titulo: String
@@ -31,10 +32,12 @@ type Mutation {
     idPanel: String,
     titulo: String,
     descripcion: String,
+    columna: String,
     fecha_inicio: String,
     fecha_fin: String,
     estado: String,
     panelId: String
+    
   ): Tarea
   updateTarea(
     _id: String,
@@ -65,4 +68,6 @@ type Mutation {
 }
 `
 
-export const mongoDbUrl = 'mongodb+srv://JavaScript:uoc1234@producto2.prmbfgr.mongodb.net/test'
+// export const mongoDbUrl = 'mongodb+srv://JavaScript:uoc1234@producto2.prmbfgr.mongodb.net/test'
+
+export const mongoDbUrl = 'mongodb+srv://bdAdmin:1234@bduoc.kd8xpcw.mongodb.net/test'

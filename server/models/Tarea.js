@@ -9,6 +9,7 @@ const TareaSchema = new Schema({
     titulo: String,
     descripcion: String,
     columna: String,
+    apellido: String,
     fecha_inicio: { type: Date, default: Date.now },
     fecha_fin: { type: Date },
     estado: Boolean,
